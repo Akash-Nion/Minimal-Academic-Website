@@ -103,11 +103,11 @@ nav a:hover, .social-links-header a:hover {
 }
 
 /* Unified animation for elements (not sections) */
-.publication-item, .award-item, .service-category, .misc-item, .news-list li {
+.publication-item, .project-item, .award-item, .service-category, .misc-item, .news-list li {
   transition: transform var(--transition-time) ease;
 }
 
-.publication-item:hover, .award-item:hover, 
+.publication-item:hover, .project-item:hover, .award-item:hover,
 .service-category:hover, .misc-item:hover, .news-list li:hover {
   transform: translateX(var(--animation-offset));
 }
@@ -267,6 +267,79 @@ section {
   background-color: var(--accent-color);
   transform: translateX(3px);
   box-shadow: 0 2px 5px rgba(74, 116, 185, 0.2);
+}
+
+/* Projects section */
+.project-item {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: 1.25rem;
+}
+
+.project-thumbnail {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(74, 116, 185, 0.08);
+  color: var(--accent-color);
+  font-size: 2rem;
+  transition: background-color var(--transition-time) ease;
+}
+
+.project-item:hover .project-thumbnail {
+  background-color: rgba(74, 116, 185, 0.16);
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project-title {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.project-description {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.55rem;
+  line-height: 1.55;
+}
+
+.project-metric {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  background-color: rgba(74, 116, 185, 0.08);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.project-tag {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background-color: rgba(0, 0, 0, 0.035);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.55rem;
+  border-radius: 12px;
 }
 
 /* Awards section */
@@ -447,9 +520,18 @@ strong {
   }
 
   /* Disable right-moving hover animations on mobile */
-  .publication-item:hover, .award-item:hover, 
+  .publication-item:hover, .project-item:hover, .award-item:hover,
   .service-category:hover, .misc-item:hover, .news-list li:hover,
   nav a:hover, .social-links-header a:hover, .pub-links a:hover {
     transform: none !important;
+  }
+
+  .project-item {
+    flex-direction: column;
+  }
+
+  .project-thumbnail {
+    width: 100%;
+    height: 70px;
   }
 }
