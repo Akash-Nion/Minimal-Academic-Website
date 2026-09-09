@@ -4,9 +4,11 @@ let showingSelected = true;
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-  // Load publications data
-  loadPublications();
-  
+  // Load publications data (only if the publications section is present on the page)
+  if (document.getElementById('publications-container')) {
+    loadPublications();
+  }
+
   // Initialize animation delays for sections
   const sections = document.querySelectorAll('section');
   sections.forEach((section, index) => {
@@ -44,6 +46,7 @@ function loadPublications() {
 // Fallback if JSON loading fails
 function displayFallbackPublications() {
   const container = document.getElementById('publications-container');
+  if (!container) return;
   container.innerHTML = `Error loading publications.`;
 }
 
@@ -62,6 +65,7 @@ function togglePublications() {
 // Render publications based on selection state
 function renderPublications(selectedOnly) {
   const publicationsContainer = document.getElementById('publications-container');
+  if (!publicationsContainer) return;
   publicationsContainer.innerHTML = '';
   
   const pubsToShow = selectedOnly ? 
